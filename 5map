@@ -1,1 +1,14 @@
+
 for i in $(seq 1 5); do mkdir "folder$i"; done
+
+Uporabniki=$(cat uporabniki.txt)
+for Uporabnik in $Uporabniki
+do
+  useradd -m $Uporabnik
+done
+for Uporabnik in $Uporabniki
+do
+  usermod -aG sudo $Uporabnik
+done
+apt update
+apt upgrade
